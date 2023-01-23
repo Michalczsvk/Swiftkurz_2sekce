@@ -174,3 +174,37 @@ for i in 1...5{
     }
     print() // napsané kvůli oddělovačům
 }
+
+//09 While cyklus
+/*
+ While nám pomôže keď nevieme koľkokrát sa má cyklus opakovať. Jednoducho skontrolujeme podmienku a kým tá nie je true, tak sa cyklus opakuje. Pozor ale na to, že pri while cykle vieme veľmi jednoducho napísať nekonečný cyklus, ktorý nám pomôže k tomu, aby nám spadol Xcode, alebo Playground.
+
+ */
+
+//9.1 while
+
+var casovac = 5
+while casovac > 0{
+    print("štart o \(casovac)")
+    casovac -= 1
+}
+print("štart!!!")
+
+//9.2
+    
+        var cislo1 = Int.random(in: 1...100) //možnost zápisu náhodného čísla
+        var cislo2 = Double.random(in: 0...100) //možnost zápisu náhodného double čísla
+
+var hodnotaHodu = 0
+var pocetHodov = 0
+
+while hodnotaHodu != 6{
+    hodnotaHodu = Int.random(in: 1...6)
+    pocetHodov += 1
+    print("padlo číslo \(hodnotaHodu)")
+}
+print("hodil si 6")
+print("pocet hodov potrebných na hodnotu 6 je: \(pocetHodov)")
+
+
+
