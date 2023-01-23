@@ -1,6 +1,8 @@
 import UIKit
 import Darwin
 
+
+/*
 var greeting = "Hello, playground"
 
 let prv1 = [321, 270, 229, 161, 378, 148, 316, 152, 180, 108, 188, 225, 333, 358, 189, 112, 196, 373, 252, 385, 239, 363, 171, 191, 155, 338, 117, 255, 388, 259, 272, 355, 266, 203, 220, 118, 124, 209, 170, 219, 136, 274, 357, 317, 256, 320, 356, 397, 315, 176, 305, 182, 347, 336, 185, 172, 398, 121, 318, 212, 127, 132, 122]
@@ -107,4 +109,68 @@ for rok in priestupneRoky {
         print("\(rok) nie je priestupný rok")
     }
     
+}
+
+*/
+// 08 For in cyklus
+//Základný zápis
+
+let pracovanaPozicia = ["kuchár", "pošták", "policajt", "učitel"]
+
+for praca in pracovanaPozicia {
+    print("Každý \(praca) má rád dobrú výplatu")
+}
+
+//8.1 zápis pomocou "i"
+
+for i in 0...5{
+    print("\(i) + 1 = \(i + 1)")
+}
+//8.2 zápis pomocou placeholdera '_'
+
+for _ in 0..<6{
+    print("mám ťa rád")
+}
+
+//8.3 break
+//  Pokud je zap před printem tak zapíše jenom hodnotu 4 a pokud je za tak i hodnotu 5
+
+for i in 0...10{
+    if i == 5{break}
+    print(i)
+}
+
+for i in 0...10{
+    print(i)
+    if i == 5{break}
+}
+
+//8.4 continue - pokud splní podmínku pak přeskočí na další cyklus a vynechá
+
+for i in 0...10{
+    if i == 5{continue} // nevypíše číslo 5 protože nenastane print(i==5)
+    print(i)
+}
+//8.4A další príklad kde vypíše jenom soubor z albumu, který má koncovku .jpg a .png
+
+let album = ["adam.jpg", "maria.jpg", "pes.txt", "kocur.png"]
+
+for subor in album{
+    if subor.hasSuffix(".jpg") == false && subor.hasSuffix(".png")==false{continue}
+    print("Našel jsem hezkú fotku \(subor)")
+}
+//8.4B jednoduchší zápis negácie
+let albums = ["adam.jpg", "maria.jpg", "pes.txt", "kocur.png"]
+
+for soubor in albums{
+    if !soubor.hasSuffix(".jpg") && !soubor.hasSuffix(".png") {continue}
+    print("Našel jsem hezkú fotku \(soubor)")
+}
+//8.5 vnorené cykly
+
+for i in 1...5{
+    for j in 1...5{
+        print("\(i) + \(j) = \(i + j)")
+    }
+    print() // napsané kvůli oddělovačům
 }
