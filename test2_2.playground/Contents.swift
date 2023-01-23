@@ -208,3 +208,19 @@ print("pocet hodov potrebných na hodnotu 6 je: \(pocetHodov)")
 
 
 
+//2.10 Repeat cyklus
+
+//2.10A
+var hodiny = 10
+
+repeat {
+    print("zostáva ešte \(hodiny) hodín")
+    hodiny -= 1
+}while hodiny > 2
+
+//2.10B
+var pocitadlo = 0
+
+repeat{
+    print("premenná je 0 ") // vypíše print aspoň jednou na začátku a pak už ne protože podmínka není splněná
+}while pocitadlo != 0
