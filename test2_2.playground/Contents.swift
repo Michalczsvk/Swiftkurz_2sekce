@@ -286,7 +286,8 @@ for i in 1...14{
  */
 
 // 03_01 Funkcie
-  
+/*
+
 func mojaFunkcia(){
     print("Ja som užitočná funkcia.")
 }
@@ -332,10 +333,42 @@ pridaj()
 
 print(score0301)
 
-
+*/
 
 // 03.02 Návratové funkcie
 /// Naše funkcie nemusia stále len niečo vypisovať do debugovacej konzoly.
 /// Tento výstup môžu len držať a my ho vieme vďaka tomu v kóde kdekoľvek použiť.
 /// Jedná sa o funkcie s návratovou hodnotou.
 /// Kľúčové slovko return nám nami zvolenú hodnotu navráti a my s ňou vieme v kóde pracovať.
+
+sqrt(441)// funkcia "odmocnina"
+// 01. funkcia, kde návratová hodnota je priemerná hodnota zo vstupných hodnot
+func priemernaTeplota(rannaTeplota: Double, obednaTeplota: Double, nocnaTeplota: Double) -> Double {
+    var priemer = (rannaTeplota + obednaTeplota + nocnaTeplota) / 3
+    return priemer
+}
+
+let dennaTeplota = priemernaTeplota(rannaTeplota: 3, obednaTeplota: 6, nocnaTeplota: -3)
+print("Priemerná denná teplota je \(dennaTeplota) stupne.")
+
+
+// 0.2 funkcia, ktorá vypočítá priemer bodov žiaka
+
+func priemerTestov(ziak: String, body:[Int]) -> String {
+    var priemernyVysledok = 0
+    
+    
+    for znamka in body {
+        priemernyVysledok += znamka
+    }
+    
+    priemernyVysledok = priemernyVysledok / body.count
+    var vysledok = "Žiak \(ziak) má z testov priemer: \(priemernyVysledok)."
+    return vysledok
+    
+}
+
+let juraj = priemerTestov(ziak: "Juraj", body: [88, 45, 66, 28])
+print(juraj)
+
+
