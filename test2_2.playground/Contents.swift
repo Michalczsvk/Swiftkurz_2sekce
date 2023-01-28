@@ -112,29 +112,32 @@ for rok in priestupneRoky {
 }
 
 */
-// 08 For in cyklus
+// 02.08 For in cyklus
 //Základný zápis
+/*
+    let pracovanaPozicia = ["kuchár", "pošták", "policajt", "učitel"]
 
-let pracovanaPozicia = ["kuchár", "pošták", "policajt", "učitel"]
-
-for praca in pracovanaPozicia {
-    print("Každý \(praca) má rád dobrú výplatu")
-}
-
+    for praca in pracovanaPozicia {
+        print("Každý \(praca) má rád dobrú výplatu")
+    }
+*/
 //8.1 zápis pomocou "i"
+/*
+    for i in 0...5{
+        print("\(i) + 1 = \(i + 1)")
+    }
+ */
 
-for i in 0...5{
-    print("\(i) + 1 = \(i + 1)")
-}
+
 //8.2 zápis pomocou placeholdera '_'
-
-for _ in 0..<6{
-    print("mám ťa rád")
-}
-
+/*
+    for _ in 0..<6{
+        print("mám ťa rád")
+    }
+*/
 //8.3 break
 //  Pokud je zap před printem tak zapíše jenom hodnotu 4 a pokud je za tak i hodnotu 5
-
+/*
 for i in 0...10{
     if i == 5{break}
     print(i)
@@ -144,15 +147,18 @@ for i in 0...10{
     print(i)
     if i == 5{break}
 }
+*/
 
 //8.4 continue - pokud splní podmínku pak přeskočí na další cyklus a vynechá
+/*
+    for i in 0...10{
+        if i == 5{continue} // nevypíše číslo 5 protože nenastane print(i==5)
+        print(i)
+    }
+ */
 
-for i in 0...10{
-    if i == 5{continue} // nevypíše číslo 5 protože nenastane print(i==5)
-    print(i)
-}
 //8.4A další príklad kde vypíše jenom soubor z albumu, který má koncovku .jpg a .png
-
+/*
 let album = ["adam.jpg", "maria.jpg", "pes.txt", "kocur.png"]
 
 for subor in album{
@@ -166,15 +172,17 @@ for soubor in albums{
     if !soubor.hasSuffix(".jpg") && !soubor.hasSuffix(".png") {continue}
     print("Našel jsem hezkú fotku \(soubor)")
 }
-//8.5 vnorené cykly
+ */
 
+//8.5 vnorené cykly
+/*
 for i in 1...5{
     for j in 1...5{
         print("\(i) + \(j) = \(i + j)")
     }
     print() // napsané kvůli oddělovačům
 }
-
+*/
 //09 While cyklus
 /*
  While nám pomôže keď nevieme koľkokrát sa má cyklus opakovať. Jednoducho skontrolujeme podmienku a kým tá nie je true, tak sa cyklus opakuje. Pozor ale na to, že pri while cykle vieme veľmi jednoducho napísať nekonečný cyklus, ktorý nám pomôže k tomu, aby nám spadol Xcode, alebo Playground.
@@ -182,16 +190,16 @@ for i in 1...5{
  */
 
 //9.1 while
-
+/*
 var casovac = 5
 while casovac > 0{
     print("štart o \(casovac)")
     casovac -= 1
 }
 print("štart!!!")
-
+*/
 //9.2
-    
+/*
         var cislo1 = Int.random(in: 1...100) //možnost zápisu náhodného čísla
         var cislo2 = Double.random(in: 0...100) //možnost zápisu náhodného double čísla
 
@@ -207,9 +215,9 @@ print("hodil si 6")
 print("pocet hodov potrebných na hodnotu 6 je: \(pocetHodov)")
 
 
-
+*/
 //2.10 Repeat cyklus
-
+/*
 //2.10A
 var hodiny = 10
 
@@ -224,7 +232,7 @@ var pocitadlo = 0
 repeat{
     print("premenná je 0 ") // vypíše print aspoň jednou na začátku a pak už ne protože podmínka není splněná
 }while pocitadlo != 0
-
+*/
 // 2.Domáca Úloha #4
 /*
  #4.1 Spravte losovanie v EuroJackpote 6 žrebovaní
@@ -238,7 +246,7 @@ repeat{
 
 
 //#4.1
-
+/*
 var cisloX = 0
 var cisloY = 10
 var tabulka1 = [0]
@@ -260,11 +268,11 @@ for _ in 1...6{
     print("Vylosované čísla boli \(tabulka1) a \(tabulka2)")
     
 }
-
+*/
 // #4.2
 
 
-
+/*
 var a0 = 0
 var a1 = 1
 var fibonaccihoCisla: [Int] = [a0, a1]
@@ -275,4 +283,12 @@ for i in 1...14{
     fibonaccihoCisla.insert(aX, at: i+1)
     print(fibonaccihoCisla)
 }
+ */
 
+// 03_01 Funkcie
+  
+func mojaFunkcia(){
+    print("Ja som užitočná funkcia.")
+}
+
+mojaFunkcia()
