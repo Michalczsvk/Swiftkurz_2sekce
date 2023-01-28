@@ -292,3 +292,50 @@ func mojaFunkcia(){
 }
 
 mojaFunkcia()
+
+var cislo0301 = 7
+cislo0301.isMultiple(of: 2)
+
+func pozdrav(meno: String){
+    print("Ahoj \(meno).")
+}
+
+pozdrav(meno: "Michal")
+
+// fukce na výpočet násobilky
+func nasobilka(cislo: Int){
+    for i in 1...10{
+        print("\(i) x \(cislo) = \(i * cislo)")
+    }
+}
+
+nasobilka(cislo: 6)
+
+// fukce na výpočet násobilky
+func nasobilkaVelka(cislo: Int, rozsah: Int){
+    for i in 1...rozsah{
+        print("\(i) x \(cislo) = \(i * cislo)")
+    }
+}
+
+nasobilkaVelka(cislo: 2, rozsah: 15) // funkce(parametr: argument)
+
+var score0301 = 0
+
+func pridaj(){
+    score0301 += 1
+}
+
+pridaj()
+pridaj()
+pridaj()
+
+print(score0301)
+
+
+
+// 03.02 Návratové funkcie
+/// Naše funkcie nemusia stále len niečo vypisovať do debugovacej konzoly.
+/// Tento výstup môžu len držať a my ho vieme vďaka tomu v kóde kdekoľvek použiť.
+/// Jedná sa o funkcie s návratovou hodnotou.
+/// Kľúčové slovko return nám nami zvolenú hodnotu navráti a my s ňou vieme v kóde pracovať.
