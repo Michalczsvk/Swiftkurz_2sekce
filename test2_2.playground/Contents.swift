@@ -342,7 +342,8 @@ print(score0301)
 /// Kľúčové slovko return nám nami zvolenú hodnotu navráti a my s ňou vieme v kóde pracovať.
 
 sqrt(441)// funkcia "odmocnina"
-// 01. funkcia, kde návratová hodnota je priemerná hodnota zo vstupných hodnot
+
+// 03.02(01. funkcia), kde návratová hodnota je priemerná hodnota zo vstupných hodnot
 func priemernaTeplota(rannaTeplota: Double, obednaTeplota: Double, nocnaTeplota: Double) -> Double {
     var priemer = (rannaTeplota + obednaTeplota + nocnaTeplota) / 3
     return priemer
@@ -352,7 +353,7 @@ let dennaTeplota = priemernaTeplota(rannaTeplota: 3, obednaTeplota: 6, nocnaTepl
 print("Priemerná denná teplota je \(dennaTeplota) stupne.")
 
 
-// 0.2 funkcia, ktorá vypočítá priemer bodov žiaka
+// 03.02(02. funkcia), ktorá vypočítá priemer bodov žiaka
 
 func priemerTestov(ziak: String, body:[Int]) -> String {
     var priemernyVysledok = 0
@@ -371,4 +372,38 @@ func priemerTestov(ziak: String, body:[Int]) -> String {
 let juraj = priemerTestov(ziak: "Juraj", body: [88, 45, 66, 28])
 print(juraj)
 
+// 03.02(03. funkcia)
 
+func pozdrav0303(uzivatela meno: String) // vonkajší("uzivatela") a vnútorný parameter("meno")
+{
+    print("Ahoj \(meno)")
+}
+
+print(pozdrav0303(uzivatela: "Juraj"))
+
+/// 03.03(01. funkcia) Vynechávanie parametra
+
+func malaNasobilka(pre cislo: Int, do maxima: Int){
+    for i in 1...maxima{
+        print("\(i) x \(cislo) = \(i * cislo)")
+    }
+}
+malaNasobilka(pre: 4, do: 10)
+
+//03.03(03. funkcia) funkcia už může mať predvyplněný parameter
+func malaNasobilka2(pre cislo: Int, do maxima: Int = 8){ // predvyplněný parametr, který není nutné vyplnit ale můžeme
+    for i in 1...maxima{
+        print("\(i) x \(cislo) = \(i * cislo)")
+    }
+}
+
+malaNasobilka2(pre: 6)
+
+// 03.03(03. funkcia) Odstránenie vonkajšieho parametra
+// podtržník ako placeholder
+
+func pozdrav0302(_ meno: String){
+    print("Ahoj, ako sa máš \(meno)?")
+}
+
+print(pozdrav0302("Sofia"))
