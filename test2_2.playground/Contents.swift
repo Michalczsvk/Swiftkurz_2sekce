@@ -224,3 +224,55 @@ var pocitadlo = 0
 repeat{
     print("premenná je 0 ") // vypíše print aspoň jednou na začátku a pak už ne protože podmínka není splněná
 }while pocitadlo != 0
+
+// 2.Domáca Úloha #4
+/*
+ #4.1 Spravte losovanie v EuroJackpote 6 žrebovaní
+ výstup by mal vyzerať nasledovne:
+ x = 1 až 50, y = 1 až 10
+ [x, x, x, x, x] [y, y] (6x pod sebou)
+
+ #4.2 vypíšte prvých 15 čísel z fibonacciho postupnosti
+ Jako Fibonacciho posloupnost je v matematice označována nekonečná posloupnost přirozených čísel, začínající 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, … (čísla nacházející se ve Fibonacciho posloupnosti jsou někdy nazývána Fibonacciho čísla), kde každé číslo je součtem dvou předchozích.
+ */
+
+
+//#4.1
+
+var cisloX = 0
+var cisloY = 10
+var tabulka1 = [0]
+var tabulka2 = [1]
+
+for _ in 1...6{
+    tabulka1.removeAll()
+    tabulka2.removeAll()
+    for i in 0...9{
+        let cisloX = Int.random(in: 1...50)
+        tabulka1.insert(cisloX, at: i)
+    }
+    
+    for i in 0...1{
+        let cisloY = Int.random(in: 1...10)
+        tabulka2.insert(cisloY, at: i)
+    }
+    
+    print("Vylosované čísla boli \(tabulka1) a \(tabulka2)")
+    
+}
+
+// #4.2
+
+
+
+var a0 = 0
+var a1 = 1
+var fibonaccihoCisla: [Int] = [a0, a1]
+
+for i in 1...14{
+    
+   var aX = fibonaccihoCisla[i] + fibonaccihoCisla[i - 1]
+    fibonaccihoCisla.insert(aX, at: i+1)
+    print(fibonaccihoCisla)
+}
+
