@@ -344,6 +344,7 @@ print(score0301)
 sqrt(441)// funkcia "odmocnina"
 
 // 03.02(01. funkcia), kde návratová hodnota je priemerná hodnota zo vstupných hodnot
+/*
 func priemernaTeplota(rannaTeplota: Double, obednaTeplota: Double, nocnaTeplota: Double) -> Double {
     var priemer = (rannaTeplota + obednaTeplota + nocnaTeplota) / 3
     return priemer
@@ -371,7 +372,7 @@ func priemerTestov(ziak: String, body:[Int]) -> String {
 
 let juraj = priemerTestov(ziak: "Juraj", body: [88, 45, 66, 28])
 print(juraj)
-
+*/
 // 03.02(03. funkcia)
 
 func pozdrav0303(uzivatela meno: String) // vonkajší("uzivatela") a vnútorný parameter("meno")
@@ -407,3 +408,69 @@ func pozdrav0302(_ meno: String){
 }
 
 print(pozdrav0302("Sofia"))
+
+/// 03_05_Domáca úloha
+/// 1. V časti o priemereTestov nie je korektne spravený výsledok. Ak by Juraj mal z testov iné známky, výsledok by bol stále celé číslo.
+///   Ale priemer by mal vedieť byť aj desatiné číslo. Opravte výpočet tak, aby sa výsledok zobrazoval korektne, aj keď výjde desatiné číslo.
+
+/// 2. Vytvorte funkciu, ktorá príjme celé číslo (v desiatkovej sústave) a navráti toto číslo v binárnej sústave.
+///   napr: binary(125)
+///   výstup: 1111101, či to bude pole ([1, 1, 1, 1, 1, 0, 1]), alebo string ("1111101") je úplne na vás.
+
+// 03.05_Domácá úloh 01
+
+func priemerTestov(ziak: String, body:[Double]) -> String {
+    var priemernyVysledok: Double = 0
+    
+    
+    for znamka in body {
+        priemernyVysledok += znamka
+    }
+    
+    priemernyVysledok = priemernyVysledok / Double(body.count)
+    var vysledok = "Žiak \(ziak) má z testov priemer: \(priemernyVysledok)."
+    return vysledok
+    
+}
+
+let juraj = priemerTestov(ziak: "Juraj", body: [88, 45, 66, 28])
+print(juraj)
+
+// 03.05_Domácá úloha 02
+/// číslo na vstupu se bude dělit a následně se zapíše se zbytek
+
+
+
+var tabulkaDesiatkovejSoustavy: [Int] = []
+var tabulkaDvojkovejSoustavy: [Int] = []
+
+func binary(_ cislo0305: Int) -> [Int]{
+    
+    // naplnenie tabulky číslami, ktoré sú delitelné
+    var cislo0305a = cislo0305
+    tabulkaDesiatkovejSoustavy.append(cislo0305)
+    while cislo0305a > 1 {
+        cislo0305a = cislo0305a / 2
+        tabulkaDesiatkovejSoustavy.append(cislo0305a)
+    }
+    // zmena každého čísla desiatkovej sústavy na hodnotu dvojkovej sustavy
+    tabulkaDvojkovejSoustavy = tabulkaDesiatkovejSoustavy.reversed()
+    tabulkaDesiatkovejSoustavy.removeAll()
+    for cislo in tabulkaDvojkovejSoustavy {
+        var cislo2 = cislo % 2
+        tabulkaDesiatkovejSoustavy.append(cislo2)
+    }
+    return tabulkaDesiatkovejSoustavy
+    
+}
+  
+print(binary(100))
+
+    
+   
+
+
+
+
+
+
