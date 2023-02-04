@@ -374,24 +374,25 @@ let juraj = priemerTestov(ziak: "Juraj", body: [88, 45, 66, 28])
 print(juraj)
 */
 // 03.02(03. funkcia)
-
+/*
 func pozdrav0303(uzivatela meno: String) // vonkajší("uzivatela") a vnútorný parameter("meno")
 {
     print("Ahoj \(meno)")
 }
 
 print(pozdrav0303(uzivatela: "Juraj"))
-
+*/
 /// 03.03(01. funkcia) Vynechávanie parametra
-
+/*
 func malaNasobilka(pre cislo: Int, do maxima: Int){
     for i in 1...maxima{
         print("\(i) x \(cislo) = \(i * cislo)")
     }
 }
 malaNasobilka(pre: 4, do: 10)
-
+*/
 //03.03(03. funkcia) funkcia už může mať predvyplněný parameter
+/*
 func malaNasobilka2(pre cislo: Int, do maxima: Int = 8){ // predvyplněný parametr, který není nutné vyplnit ale můžeme
     for i in 1...maxima{
         print("\(i) x \(cislo) = \(i * cislo)")
@@ -399,16 +400,16 @@ func malaNasobilka2(pre cislo: Int, do maxima: Int = 8){ // predvyplněný param
 }
 
 malaNasobilka2(pre: 6)
-
+*/
 // 03.03(03. funkcia) Odstránenie vonkajšieho parametra
 // podtržník ako placeholder
-
+/*
 func pozdrav0302(_ meno: String){
     print("Ahoj, ako sa máš \(meno)?")
 }
 
 print(pozdrav0302("Sofia"))
-
+*/
 /// 03_05_Domáca úloha
 /// 1. V časti o priemereTestov nie je korektne spravený výsledok. Ak by Juraj mal z testov iné známky, výsledok by bol stále celé číslo.
 ///   Ale priemer by mal vedieť byť aj desatiné číslo. Opravte výpočet tak, aby sa výsledok zobrazoval korektne, aj keď výjde desatiné číslo.
@@ -418,7 +419,7 @@ print(pozdrav0302("Sofia"))
 ///   výstup: 1111101, či to bude pole ([1, 1, 1, 1, 1, 0, 1]), alebo string ("1111101") je úplne na vás.
 
 // 03.05_Domácá úloh 01
-
+/*
 func priemerTestov(ziak: String, body:[Double]) -> String {
     var priemernyVysledok: Double = 0
     
@@ -436,11 +437,10 @@ func priemerTestov(ziak: String, body:[Double]) -> String {
 let juraj = priemerTestov(ziak: "Juraj", body: [88, 45, 66, 28])
 print(juraj)
 
+*/
 // 03.05_Domácá úloha 02
 /// číslo na vstupu se bude dělit a následně se zapíše se zbytek
-
-
-
+/*
 var tabulkaDesiatkovejSoustavy: [Int] = []
 var tabulkaDvojkovejSoustavy: [Int] = []
 
@@ -465,12 +465,101 @@ func binary(_ cislo0305: Int) -> [Int]{
 }
   
 print(binary(100))
+*/
 
+/// 03.04 Closures (Zátvorky #1)
+///  Kľúčové je slovko "in". Samotné zátvorky vedia byť jednoduché ale aj tak zložité, že sa vám bude kúriť z hlavy. Syntax na prvý pohľad ako z inej planéty.
+///  Zátvorkovým výrazom sa dajú upraviť mnohé funkcie, ktoré sú pevnou súčasťou Swiftu. Trošku to načneme, ale nebojte sa nič, nie je to žiadna jadrová fyzika :) .
     
-   
+let pozdrav = {
+    print("Ahoj")
+}
+pozdrav()
+// 1. príklad = návratová hodnota typu String
+    let pozdrav2A = {(meno: String) -> String in // pred 'in' sa zapisujú parametry a za in
+        return "Ahoj \(meno)"
+    }
+    print(pozdrav2A("Michal"))
+// 2. priklad = návratová hodnota typu String
+    let pozdrav2B = {(meno: String) -> String in // pred 'in' sa zapisujú parametry a za in nemusíme napísať    "return"
+        "Ahoj \(meno)"
+    }
+    print(pozdrav2B("Michal"))
 
+//3. príklad = zobrazenie možností ako usporiadať
+    var nakup = ["zemiaky","bagety", "jablká", "hrušky", "mlieko", "minerálka", "vajcia"]
+    //3A. Pokiaľ chcem zoradit položky v tabulke nakup tak takto to nefunguje
+    var zoradenyNakup = nakup.sorted()
+    print(zoradenyNakup)
+    // 3BA do .sorted jsme si vytvorili funkci která se použije v závorce
+        func nakupnaPriorita(vec1: String, vec2: String) -> Bool {
+            if vec1 == "mlieko" {
+                return true
+            }else if vec2 == "mlieko" {
+                return false
+            }
+            return vec1 < vec2
+        }
 
+        var zoradenyNakup2kdeMliekoJePriorita = nakup.sorted(by: nakupnaPriorita)
+        print(zoradenyNakup2kdeMliekoJePriorita)
+/// 03.05 Closures (Zátvorky #2)
+///     V jazyku Swift vieme vkladať funkciu do funkcie a funkciu do ďalšej funkcie... Zátvorky nám pomáhajú ušetriť nejaké kroky a spraviť náš kód prehľadnejší.
 
+    // 3BB do .sorted jsme do závorky vložili už rovnou "funkci"
+        var zoradenyNakup2kdeMliekoJePriorita2 = nakup.sorted(by:{ (vec1: String, vec2: String) -> Bool in
+            if vec1 == "mlieko" {
+                return true
+            }else if vec2 == "mlieko" {
+                return false
+            }
+            return vec1 < vec2
+        })
+            print(zoradenyNakup2kdeMliekoJePriorita2)
 
+    // 3BC do .sorted jsme do závorky vložili už rovnou "funkci", kterou je možno zapsat jednodušeji
+        var zoradenyNakup2kdeMliekoJePriorita2B = nakup.sorted { vec1, vec2 in
+            if vec1 == "mlieko" {
+                return true
+            }else if vec2 == "mlieko" {
+                return false
+            }
+            return vec1 < vec2
+        }
+            print(zoradenyNakup2kdeMliekoJePriorita2B)
 
+/// 03.06 Closures (Zátvorky #3)
+///     Pokračujeme v zátvorkách...
+///     Ukážeme si, ako ešte viac osekáme zátvorky o kľúčové slová.
+///     Čo je to $0, $1, $2? Tak presne toto si teraz ukážeme. Taktiež si povieme, kedy je dobré to použiť a kedy radšej tento zápis nechať na pokoji.
+///     A čo ďalšie veci ako .map či .filter? Nehanbite sa skočiť na dokumentáciu a pozrieť si čo to aj o nich.
 
+        var zoradenyNakup2kdeMliekoJePriorita2C = nakup.sorted {
+            if $0 == "mlieko" {  // $0 a $1 nám nahradili vec1 a vec2(interné parametre)
+                return true
+            }else if $1 == "mlieko" {
+                return false
+            }
+            return $0 < $1
+        }
+            print(zoradenyNakup2kdeMliekoJePriorita2C)
+
+    // 06_1A = ďalší príklad
+        var reverzneZoradenie = nakup.sorted {
+            return $0 > $1
+        }
+
+        print(reverzneZoradenie)
+
+    // 06_1B = zjednodušený zápis predcházajúceho
+        var reverzneZoradenieB = nakup.sorted { $0 > $1 }
+
+        print(reverzneZoradenieB)
+
+    // 06_2 = funkcia .map dokáže pomocou clousure vytvorit nové pole so zaradenou funkciou
+        let nakupVelkymiPismenami = nakup.map{ $0.uppercased()}
+        print(nakupVelkymiPismenami)
+
+    // 06_3 = funkcia .filter
+let vsetkoNaM = nakup.filter{$0.hasPrefix("m")  }
+print(vsetkoNaM)
