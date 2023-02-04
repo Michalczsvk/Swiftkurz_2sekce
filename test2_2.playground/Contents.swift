@@ -563,3 +563,25 @@ pozdrav()
     // 06_3 = funkcia .filter
 let vsetkoNaM = nakup.filter{$0.hasPrefix("m")  }
 print(vsetkoNaM)
+
+
+/// 03.Domáca úloha #6
+///     1. Vytvor zátvorkový výraz, ktorý príjme kilometre a navráti prijatú hodnotu prekonvertovanú na míle.
+///     2. Zátvorka má prijať celé číslo a vrátiť true, ak sa jedná o prvočíslo alebo false, ak sa nejedná o prvočíslo.
+
+
+    //01.
+        var pocetKilometrov: [Double] = [97]
+        let prevodnikKmNaMile = pocetKilometrov.map{$0 * 0.621371192}
+
+        print(prevodnikKmNaMile)
+    //02.
+        //02.A
+        var cisloPrePrvocislo: Int = 4
+        let kontrolaPrvocisla = !cisloPrePrvocislo.isMultiple(of: 2)
+        //02.B
+        var cisloPrePrvocislo2: [Int] = [19]
+        let kontrolaPrvocisla2 = cisloPrePrvocislo2.map{ !$0.isMultiple(of: 2)}
+
+
+
